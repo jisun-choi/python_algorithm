@@ -1,1 +1,3 @@
-# python_practice1
+# python_practice
+
+Wecode precourse python practice codes 
