@@ -1,0 +1,8 @@
+from random import shuffle
+
+male = ['슈퍼맨', '심봉사', '로미오', '이몽룡', '마루치']
+female = ['원더우먼', '뺑덕', '줄리엣', '성춘향', '아라치']
+shuffle(male,female)
+shuffle(female)
+partners = zip(male, female)
+print(tuple(partners))
