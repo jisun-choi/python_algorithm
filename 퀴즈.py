@@ -1,49 +1,31 @@
-#1
-from random import *
+# 6
+for i in range(1, 51):
+    with open(str(i) + '주차.txt', 'w', encoding = 'utf8') as report_file:
+        report_file.write(f' - {i} 주차 주간보고')
+        report_file.write('\n 부서: ')
+        report_file.write('\n 이름: ')
+        report_file.write('\n 업무 요약: ')
 
-date = randint(4, 28)
-print("오프라인 스터디 모임 날짜는 매월" +str(date) + "일로 선정되었습니다.")
+#7
+class House:
+    def __init__(self, location, house_type, deal_type, price, completion_year):
+        self.location = location
+        self.house_type = house_type
+        self.deal_type = deal_type
+        self.price = price
+        self.completion_year = completion_year
 
-#2
-url = "http://naver.com"
-my_str = url.replace("http://","") #http를 제거 
-my_str = my_str[:my_str.index('.')]  #처음 만나는 . 이후 부분 제거 
-password = my_str[:3] + str(len(my_str)) + str(my_str.count('e')) +'!'
-print(f'{url}의 비밀번호는 {password}입니다.')
+    def show_detail(self):
+        print(self.location,self.house_type,self.deal_type,self.price,self.completion_year)
 
-#3
-from random import * 
-users = list(range(1, 21))
-shuffle(users)
-winners = sample(users, 4)
+house_list = []
+house1 = House('강남','아파트','매매','10억','2010년')
+house2 = House('마포','오피스텔','전세','5억','2007년')
+house3 = House('송파','빌라','월세','500/50','2000년')
 
-print(' -- 당첨자 발표 -- ')
-print(f'치킨 당첨자 : {winners[0]}')
-print(f'커피 당첨자 : {winners[1:]}')
-print(' -- 축하합니다 -- ')
+house_list.append(house1)
+house_list.append(house2)
+house_list.append(house3)
 
-#4 
-from random import *
-cnt = 0  #총 탑승 승객 수 
-for i in range(1, 51):   #1~50명 승객
-    time = randrange(5, 51)  #5~50분 소요시간
-    if 5 <= time <= 15:  #매칭 성공
-        print(f'[o]{i}번째 손님 (소요시간 : {time}분)')
-        cnt += 1 
-    else:  #매칭 실패 
-        print(f'[]{i}번째 손님 (소요시간 : {time}분)')
-
-print(f'총 탑승 승객: {cnt}명')
-
-#5 
-def std_weight(height, gender):
-    if gender == 'male':
-        return height * height * 22
-    else:
-        return height * height * 21
-
-height = 161
-gender = 'female'
-
-weight = round(std_weight(height / 100, gender),2)
-print(f'키 {height}cm 의 표준 체중은 {weight}kg 입니다.')
+for house in house_list:
+    house.show_detail()
